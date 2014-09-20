@@ -28,8 +28,8 @@
 	names(X_com) <- gsub("\\(|\\)", "", names(X_com))
 	names(X_com) <- tolower(names(X_com))
 
-	#  descriptive activity names to name the activities in the 
-	data set.
+	#  descriptive activity names to name the activities in the data set
+	
 	activities <- read.table("activity_labels.txt")
 	activities[, 2] = gsub("_", "", tolower(as.character(activities[, 2])))
 	Y_com[,1] = activities[Y_com[,1], 2]
@@ -41,8 +41,8 @@
 	names(S_com) <- "subject"
 	cleaned <- cbind(S_com, Y_com,X_com)
 	write.table(cleaned, "merged_clean_data.txt")
-	# Creates a 2nd, independent tidy data set with the average of 
-	each variable for each activity and each subject.
+	# Creates a 2nd, independent tidy data set with the average  
+
 	uniqueSubjects = unique(S_com)[,1]
 	numSubjects = length(unique(S_com)[,1])
 	numActivities = length(activities[,1])
